@@ -1,0 +1,6 @@
+com\docuflow\model\DocumentMetadata.class
+com\docuflow\controller\WorkflowController.class
+com\docuflow\DocuFlowApplication.class
+com\docuflow\config\WebConfig.class
+com\docuflow\model\DocumentAudit.class
+com\docuflow\controller\DocumentController.class

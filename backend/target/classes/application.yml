@@ -1,0 +1,16 @@
+server:
+  port: 9090
+
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/docuflow}
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+app:
+  pulsar:
+    serviceUrl: ${PULSAR_URL:pulsar://localhost:6650}
+
+
