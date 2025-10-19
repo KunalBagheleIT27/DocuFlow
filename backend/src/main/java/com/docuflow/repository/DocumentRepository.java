@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface DocumentRepository extends MongoRepository<DocumentMetadata, String> {
     List<DocumentMetadata> findByWorkflowStateIn(List<String> states);
+    List<DocumentMetadata> findByAuthor(String author);
 }

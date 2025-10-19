@@ -16,6 +16,8 @@ public class DocumentMetadata {
     private Instant updatedAt;
     private String workflowState; // Draft, Submitted, Under Review, Approved, Rejected
     private List<String> tags;
+    // For demo purposes, we keep a small content field to simulate uploaded content or a pointer
+    private String content;
 
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
@@ -31,6 +33,8 @@ public class DocumentMetadata {
     public void setWorkflowState(String workflowState) { this.workflowState = workflowState; }
     public List<String> getTags() { return tags; }
     public void setTags(List<String> tags) { this.tags = tags; }
+    public String getContent() { return content; }
+    public void setContent(String content) { this.content = content; }
 }
 
 

@@ -1,17 +1,17 @@
-import React from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { AuthProvider, useAuth } from './context/AuthContext';
-import LoginPage from './pages/LoginPage';
-import UploadPage from './pages/UploadPage';
-import DocumentListPage from './pages/DocumentListPage';
-import DocumentDetailPage from './pages/DocumentDetailPage';
-import DashboardPage from './pages/DashboardPage';
-import { AuthedLayout } from './components/AuthedLayout';
-import MyDocumentsPage from './pages/MyDocumentsPage';
-import InboxPage from './pages/InboxPage';
-import TemplatesPage from './pages/TemplatesPage';
-import ReportsPage from './pages/ReportsPage';
-import SettingsPage from './pages/SettingsPage';
+import React from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { AuthProvider, useAuth } from "./context/AuthContext";
+import LoginPage from "./pages/LoginPage";
+import UploadPage from "./pages/UploadPage";
+import DocumentListPage from "./pages/DocumentListPage";
+import DocumentDetailPage from "./pages/DocumentDetailPage";
+import DashboardPage from "./pages/DashboardPage";
+import { AuthedLayout } from "./components/AuthedLayout";
+import MyDocumentsPage from "./pages/MyDocumentsPage";
+import InboxPage from "./pages/InboxPage";
+import TemplatesPage from "./pages/TemplatesPage";
+import ReportsPage from "./pages/ReportsPage";
+import SettingsPage from "./pages/SettingsPage";
 
 function PrivateRoute({ children }: { children: React.ReactElement }) {
   const { isAuthenticated } = useAuth();
@@ -32,9 +32,10 @@ export default function App() {
         >
           <Route index element={<DashboardPage />} />
           <Route path="dashboard" element={<DashboardPage />} />
+          <Route path="documents" element={<DocumentListPage />} />
           <Route path="upload" element={<UploadPage />} />
           <Route path="documents/:id" element={<DocumentDetailPage />} />
-          <Route path="" element={<MyDocumentsPage />} />
+          <Route path="my" element={<MyDocumentsPage />} />
           <Route path="inbox" element={<InboxPage />} />
           <Route path="templates" element={<TemplatesPage />} />
           <Route path="reports" element={<ReportsPage />} />
@@ -45,6 +46,3 @@ export default function App() {
     </AuthProvider>
   );
 }
-
-
-

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { mockApi } from '../services/mockApi';
 import { api } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -25,23 +24,13 @@ export default function UploadPage() {
     setLoading(true);
     try {
       let record;
-      if (file) {
-        record = await api.uploadDocument({
-          title,
-          author: user?.username || 'anonymous',
-          tags: tags.split(',').map((t) => t.trim()).filter(Boolean),
-          file,
-        } as any);
-      } else {
-        let storedContent = content;
-        const created = await mockApi.create({
-          title,
-          author: user?.username || 'anonymous',
-          tags: tags.split(',').map((t) => t.trim()).filter(Boolean),
-          content: storedContent,
-        });
-        record = created;
-      }
+      record = await api.uploadDocument({
+        title,
+        author: user?.username || 'anonymous',
+        tags: tags.split(',').map((t) => t.trim()).filter(Boolean),
+        file: file || undefined,
+        content: !file ? content : undefined,
+      } as any);
       navigate(`/documents/${record.id}`);
     } catch (err) {
       setError('Upload failed');
