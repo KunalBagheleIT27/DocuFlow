@@ -11,6 +11,7 @@ import MyDocumentsPage from './pages/MyDocumentsPage';
 import InboxPage from './pages/InboxPage';
 import TemplatesPage from './pages/TemplatesPage';
 import ReportsPage from './pages/ReportsPage';
+import SettingsPage from './pages/SettingsPage';
 
 function PrivateRoute({ children }: { children: React.ReactElement }) {
   const { isAuthenticated } = useAuth();
@@ -37,6 +38,7 @@ export default function App() {
           <Route path="inbox" element={<InboxPage />} />
           <Route path="templates" element={<TemplatesPage />} />
           <Route path="reports" element={<ReportsPage />} />
+          <Route path="settings" element={<SettingsPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

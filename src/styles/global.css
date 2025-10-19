@@ -124,5 +124,20 @@ body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto
   .grid-2 { grid-template-columns: 1fr; }
 }
 
+/* Settings helpers */
+.avatar-wrap { display:flex; flex-direction:column; align-items:center; gap:8px; }
+.avatar { width:96px; height:96px; border-radius:12px; object-fit:cover; border:1px solid #1f2633; }
+.avatar-actions { display:flex; gap:8px; }
+.switch { position: relative; display: inline-block; width:46px; height:26px; }
+.switch input { opacity:0; width:0; height:0; }
+.slider { position:absolute; cursor:pointer; top:0; left:0; right:0; bottom:0; background:#202634; transition:.2s; border-radius:999px; }
+.slider:before { content:''; position:absolute; left:4px; top:4px; width:18px; height:18px; background:#fff; border-radius:50%; transition:.2s; }
+.switch input:checked + .slider { background: linear-gradient(90deg,var(--primary),var(--primary-2)); }
+.switch input:checked + .slider:before { transform: translateX(20px); }
+
+.toast { position:fixed; right:20px; bottom:20px; background: #0f1720; color:var(--text); padding:10px 14px; border-radius:8px; box-shadow:0 8px 24px rgba(0,0,0,.4); opacity:0; transform: translateY(10px); transition:all .25s; z-index:9999; }
+.toast.visible { opacity:1; transform: translateY(0); }
+
+
 
 

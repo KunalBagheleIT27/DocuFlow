@@ -18,6 +18,7 @@ export function AuthedLayout() {
             <NavLink to="/inbox" className={({ isActive }) => `side-link ${isActive ? 'active' : ''}`}><FaInbox /> <span>Inbox/Tasks</span></NavLink>
             <NavLink to="/templates" className={({ isActive }) => `side-link ${isActive ? 'active' : ''}`}><FaRegFile /> <span>Templates</span></NavLink>
             <NavLink to="/reports" className={({ isActive }) => `side-link ${isActive ? 'active' : ''}`}><FaChartLine /> <span>Reports</span></NavLink>
+            <NavLink to="/settings" className={({ isActive }) => `side-link ${isActive ? 'active' : ''}`}><FaRegFile /> <span>Settings</span></NavLink>
           </nav>
         </aside>
         <main className="app-main">
