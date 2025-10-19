@@ -1,13 +1,13 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { DocumentRecord, WorkflowState } from '../services/mockApi';
-import { api } from '../services/api';
-import { FaSearch, FaUser, FaClock } from 'react-icons/fa';
+import React, { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
+import { DocumentRecord, WorkflowState } from "../services/mockApi";
+import { api } from "../services/api";
+import { FaSearch, FaUser, FaClock } from "react-icons/fa";
 
 export default function DocumentListPage() {
   const [docs, setDocs] = useState<DocumentRecord[]>([]);
-  const [search, setSearch] = useState('');
-  const [state, setState] = useState<WorkflowState | 'All'>('All');
+  const [search, setSearch] = useState("");
+  const [state, setState] = useState<WorkflowState | "All">("All");
   const [loading, setLoading] = useState(true);
 
   const loadDocs = async () => {
@@ -36,7 +36,7 @@ export default function DocumentListPage() {
           d.tags.some((t) => t.toLowerCase().includes(q))
       );
     }
-    if (state !== 'All') {
+    if (state !== "All") {
       list = list.filter((d) => d.workflowState === state);
     }
     return list;
@@ -56,7 +56,10 @@ export default function DocumentListPage() {
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
-          <select value={state} onChange={(e) => setState(e.target.value as any)}>
+          <select
+            value={state}
+            onChange={(e) => setState(e.target.value as any)}
+          >
             <option>All</option>
             <option>Draft</option>
             <option>Submitted</option>
@@ -76,16 +79,31 @@ export default function DocumentListPage() {
           {filtered.map((d) => (
             <li key={d.id} className="doc-item card">
               <div className="doc-main">
-                <Link to={`/documents/${d.id}`} className="doc-title">{d.title}</Link>
+                <Link to={`/documents/${d.id}`} className="doc-title">
+                  {d.title}
+                </Link>
                 <div className="doc-meta">
-                  <span><FaUser style={{ marginRight: 6 }} /> {d.author}</span>
-                  <span><FaClock style={{ marginRight: 6 }} /> {new Date(d.updatedAt).toLocaleString()}</span>
+                  <span>
+                    <FaUser style={{ marginRight: 6 }} /> {d.author}
+                  </span>
+                  <span>
+                    <FaClock style={{ marginRight: 6 }} />{" "}
+                    {new Date(d.updatedAt).toLocaleString()}
+                  </span>
                 </div>
               </div>
-              <div className={`state-badge state-${d.workflowState.replace(/\s/g,'').toLowerCase()}`}>{d.workflowState}</div>
+              <div
+                className={`state-badge state-${d.workflowState
+                  .replace(/\s/g, "")
+                  .toLowerCase()}`}
+              >
+                {d.workflowState}
+              </div>
               <div className="tags">
                 {d.tags.map((t) => (
-                  <span key={t} className="tag">{t}</span>
+                  <span key={t} className="tag">
+                    {t}
+                  </span>
                 ))}
               </div>
             </li>
@@ -95,6 +113,3 @@ export default function DocumentListPage() {
     </div>
   );
 }
-
-
-
