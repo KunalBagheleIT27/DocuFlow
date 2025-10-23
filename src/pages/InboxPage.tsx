@@ -7,16 +7,20 @@ export default function InboxPage() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
-    api.listInbox().then((res) => setTasks(res)).finally(() => setLoading(false));
+  setLoading(true);
+  api.listInbox().then((res: DocumentRecord[]) => setTasks(res)).finally(() => setLoading(false));
   }, []);
 
   return (
     <div className="container">
-      <h2>Inbox / Tasks</h2>
-      <div className="card">
-        <div className="subtitle">Tasks requiring your attention</div>
-        <div style={{height:12}} />
+      <div className="page-hero">
+        <div className="hero-left">
+          <div className="page-title">Inbox / Tasks</div>
+          <div className="hero-sub">Tasks requiring your attention</div>
+        </div>
+      </div>
+
+      <div className="card table-card">
         {loading && <div className="empty">Loading…</div>}
         {!loading && tasks.length === 0 && <div className="empty">No pending tasks. Workflow events will appear here.</div>}
         {!loading && tasks.length > 0 && (

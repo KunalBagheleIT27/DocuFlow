@@ -16,7 +16,7 @@ export function AuthedLayout() {
     <div className="app-shell">
       <AppHeader />
       <div className="layout-with-sidebar">
-        <aside className="sidebar sticky">
+        <aside className="sidebar sticky" aria-label="Main navigation">
           <div className="sidebar-brand">
             <FaThLarge style={{ marginRight: 8, color: "var(--primary)" }} />{" "}
             DocuFlow
@@ -89,7 +89,7 @@ export function AuthedLayout() {
           </nav>
         </aside>
         <main className="app-main">
-          <div className="page-container">
+          <div className="page-container container">
             <Outlet />
           </div>
         </main>

@@ -3,9 +3,12 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 export function AppFooter() {
   return (
-    <footer className="app-footer gradient">
+    <footer className="app-footer">
       <div className="footer-inner">
-        <div className="footer-brand">DocuFlow</div>
+        <div style={{display:'flex',alignItems:'center',gap:12}}>
+          <div className="footer-brand" style={{fontWeight:700}}>DocuFlow</div>
+          <div className="footer-sub" style={{color:'var(--muted)',fontSize:13}}>Build beautiful document workflows</div>
+        </div>
         <div className="footer-links">
           <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub" className="icon-link">
             <FaGithub />
