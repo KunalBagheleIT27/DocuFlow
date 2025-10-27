@@ -1,3 +1,139 @@
+# DocuFlow
+
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Frontend](https://img.shields.io/badge/frontend-React%20%2B%20Vite-brightgreen)](#)
+[![Backend](https://img.shields.io/badge/backend-SpringBoot-orange)](#)
+[![Status](https://img.shields.io/badge/status-Active-success)](#)
+
+A modern, product-grade document workflow UI. DocuFlow helps teams upload, review and approve documents with a clean interface, role-based workflows, and an emphasis on speed and clarity.
+
+---
+
+<p align="center">
+  <!-- Replace the image below with a high-res screenshot in `screenshots/` if available -->
+  <img src="screenshots/dashboard.png" alt="DocuFlow preview" width="900" style="border-radius:12px; box-shadow: 0 10px 30px rgba(2,6,23,0.08)"/>
+</p>
+
+---
+
+## ✨ Highlights
+
+- Polished, responsive UI built with React + Vite.
+- Role-driven workflows (Submitter / Reviewer / Approver) and audit-friendly metadata.
+- Full frontend mock API for rapid local development (backend optional).
+- Thoughtful UI: sticky header & footer, fixed left navigation, roomy cards, and clear CTAs.
+
+---
+
+## Quick start (frontend)
+
+Works with npm, pnpm or yarn. From the project root:
+
+```powershell
+# Install
+npm install
+# Start dev server
+npm run dev
+# then open http://localhost:5173
+```
+
+If you prefer pnpm or yarn:
+
+```powershell
+pnpm i && pnpm dev
+# or
+yarn && yarn dev
+```
+
+---
+
+## Backend (optional)
+
+A Spring Boot backend is included under `backend/` for teams who want the full stack (it expects MongoDB and Pulsar when enabled).
+
+Run the backend (optional):
+
+```powershell
+cd backend
+mvn -DskipTests spring-boot:run
+```
+
+Configuration: `backend/src/main/resources/application.yml` (server.port defaults to 9090).
+
+> The frontend is fully usable without the backend by using the built-in mock API located in `src/services/mockApi.ts`.
+
+---
+
+## Files & structure
+
+- `src/` — React + Vite frontend (TypeScript/TSX)
+- `src/styles/global.css` — design tokens and global layout
+- `src/services/mockApi.ts` — local mock API used during development
+- `backend/` — optional Spring Boot backend
+
+---
+
+## Features
+
+- Upload documents with metadata and file attachments
+- Document lists (All / My Documents) with filtering and rich card summaries
+- Inbox / Tasks with one-click Approve / Reject actions
+- Templates: create, copy, and reuse document templates
+- Profile & settings with per-user preferences (stored locally for frontend-first flow)
+
+---
+
+## Templates
+
+Templates are seeded on first run and persist in localStorage under `df_templates`. You can create, copy, and delete templates from the Templates page. This enables fast document creation with standardized phrasing and placeholders.
+
+---
+
+## UX & accessibility notes
+
+- Inputs are large, rounded, and keyboard-friendly.
+- High-contrast colors, clear focus rings, and meaningful ARIA landmarks.
+- Responsive layout with a priority on laptop and desktop presentation.
+
+---
+
+## Development notes
+
+- The `api` wrapper in `src/services/api.ts` prefers the backend when available, and falls back to the mock API when the backend cannot be reached.
+- To reset local sample data, clear the browser's localStorage for this origin.
+
+---
+
+## Contributing
+
+Contributions are welcome. Suggested workflow:
+
+1. Fork the repository
+2. Create a branch named `feature/your-feature`
+3. Commit changes with clear messages using conventional commits
+4. Open a PR for review
+
+Recommended commit prefixes used here:
+- `feat:` — new feature
+- `fix:` — bug fix
+- `ui:` — visual or layout change
+- `chore:` — maintenance
+
+---
+
+## Commit & release
+
+This repo is maintained with small, focused commits. For production releases, tag the main branch and create a release with release notes.
+
+---
+
+## License
+
+DocuFlow is MIT licensed — see `LICENSE`.
+
+---
+
+Made with care — if you'd like additional polish (editing UX text, screenshot pack, CI, or a demo deploy), say the word and I will add it.
 ## DocuFlow Frontend
 
 React + Vite single-page app implementing the DocuFlow UI (no backend). Includes login, upload, document list, and document detail with role-based workflow actions. Designs inspired by the referenced wireframes at `https://www.figma.com/make/hL3N9C7sd8SfrUP9fN7TOA/DocuFlow-Wireframe-Design?node-id=0-4&t=YofFc6nCRjuyOHSL-0`.
