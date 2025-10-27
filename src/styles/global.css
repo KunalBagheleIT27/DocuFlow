@@ -1,17 +1,26 @@
 /* Light theme tokens to match the provided UI */
 :root {
-  --bg: #eef3ff;
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --font-display: 'Public Sans', var(--font-sans);
+  --base-font-size: 16px;
+
+  /* Palette */
+  --bg: #f6f9ff; /* softer background */
   --panel: #ffffff;
-  --panel-2: #f8fafc;
-  --muted: #667085;
-  --text: #101828;
-  --primary: #3b82f6; /* blue-500 */
-  --primary-2: #6366f1; /* indigo-500 */
+  --panel-2: #fbfdff;
+  --muted: #71767a; /* subtle neutral */
+  --text: #0f1724; /* deep text for high contrast */
+  --primary: #2563eb; /* blue-600 */
+  --primary-2: #4f46e5; /* indigo-600 */
+  --accent: #06b6d4; /* teal accent */
   --success: #16a34a;
   --warn: #f59e0b;
   --danger: #ef4444;
-  --border: #e5e7eb;
-  --shadow: 0 10px 20px rgba(2, 6, 23, 0.06), 0 2px 6px rgba(2, 6, 23, 0.06);
+  --border: #e6eaf0;
+  --shadow: 0 12px 30px rgba(2, 6, 23, 0.08), 0 4px 8px rgba(2,6,23,0.04);
+
+  /* Layout tokens */
   --sidebar-width: 260px;
   --sidebar-gap: 28px;
   --header-height: 64px;
@@ -27,13 +36,13 @@ body,
 }
 body {
   margin: 0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
-    Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji",
-    "Segoe UI Emoji";
+  font-family: var(--font-sans);
+  font-size: var(--base-font-size);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   color: var(--text);
-  background: radial-gradient(1000px 400px at 50% -100px, #dbe7ff, transparent)
-      no-repeat,
-    var(--bg);
+  background: radial-gradient(1000px 400px at 50% -100px, rgba(37,99,235,0.06), transparent) no-repeat, var(--bg);
 }
 
 .app-shell {
@@ -84,7 +93,7 @@ body {
   margin-left: 16px;
   padding: 8px 12px;
   border-radius: 8px;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.12s;
 }
 .nav a.active {
   background: #e8f0ff;
@@ -240,17 +249,17 @@ select,
   font-weight: 600;
 }
 .btn-primary {
-  background: var(--primary);
+  background: linear-gradient(90deg, var(--primary), var(--primary-2));
   color: white;
-  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.35);
+  box-shadow: 0 8px 28px rgba(37, 99, 235, 0.18);
 }
 .btn-secondary {
-  background: #f1f5f9;
+  background: #f8fafc;
   color: var(--text);
   border: 1px solid var(--border);
 }
 .btn-danger {
-  background: var(--danger);
+  background: linear-gradient(90deg, #ef4444, #dc2626);
   color: white;
 }
 .btn-primary:disabled,
@@ -380,15 +389,26 @@ h2,
 h3 {
   line-height: 1.25;
 }
-h2 {
-  margin: 4px 0 12px;
-}
 .page-title {
   font-size: 28px;
   margin: 6px 0 18px;
   font-weight: 800;
   color: var(--text);
+  font-family: var(--font-display);
+  letter-spacing: -0.4px;
 }
+.hero-sub { color: var(--muted); font-size: 14px }
+
+h1, h2, h3, h4 {
+  margin: 0 0 12px;
+  color: var(--text);
+  font-family: var(--font-display);
+  line-height: 1.15;
+}
+h1 { font-size: 32px; font-weight:800 }
+h2 { font-size: 22px; font-weight:700 }
+h3 { font-size: 18px; font-weight:600 }
+h4 { font-size: 15px; font-weight:600 }
 .page-hero {
   display: flex;
   align-items: center;
@@ -869,3 +889,20 @@ h2 {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Accessibility helpers */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Links */
+a { color: var(--primary); text-decoration: none }
+a:hover { text-decoration: underline }
