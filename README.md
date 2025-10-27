@@ -265,7 +265,7 @@ DocuFlow is MIT licensed — see `LICENSE`.
 
 ## 🎨 Designer Showcase
 
-> This README is styled to give a modern product-first impression — clean sections, emoji-led headings, attractive badges and quick-action buttons.
+
 
 <p align="center">
 	<a href="#" style="text-decoration:none">
